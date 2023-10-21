@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>V-Sounds</title>
-    <link rel="stylesheet" href="./public/css/index.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Categories</title>
+    <link rel="stylesheet" href="../public/css/categories.css">
 </head>
 
 <body>
@@ -15,28 +14,24 @@
         <div class="nav">
             <div class="home">
                 <ul>
-                    <li class="music">V-FASHION</li>
-                    <li><a href="#">Home</a></li>
+                    <li class="music">&#119070;V-FASHION</li>
+                    <li><a href="../index.html">Home</a></li>
                     <li class="accountDropdown">
-                        <div class="filter">
-                            <select id="category">
-                                <option value="">Categories</option>
-                                <option value="jewelery">Jewelry</option>
-                                <option value="electronics">Electronics</option>
-                                <option value="women's clothing">Women</option>
-                                <option value="men's clothing">Men</option>
-                            </select>
+                        <a href="#">Categories</a>
+                        <div class="dropdown-content">
+                            <a href="views/products.html">Men's Clothing</a>
+                            <a href="views/products.html">Jewellery</a>
+                            <a href="views/products.html">Electronics</a>
+                            <a href="views/products.html">Women's Clothing</a>
                         </div>
-                        
                     </li>
 
                     <li>
                         <div class="search-container">
-                            <input type="text" placeholder="Search Products, Brand and Categories" id="searchInput">
+                            <input type="text" placeholder="Search Products, Brand and Categories">
                             <ion-icon name="search-outline"></ion-icon>
                         </div>
                     </li>
-                    <li><button id="search">Search</button></li>
 
                 </ul>
 
@@ -64,10 +59,7 @@
                     </li>
                     <div class="cart">
                         <li>Cart</li>
-                        <li><a href=""><i class="fa" style="font-size:24px">&#xf07a;</i>
-                            <span class='badge badge-warning' id='cart-count'>0 </span></a> 
-                        </li>
-                        
+                        <li><a href=""><ion-icon name="cart-outline"></ion-icon></a></li>
                     </div>
 
                 </ul>
@@ -76,14 +68,9 @@
         </div>
 
 
-        <!-- Products. -->
-        <h1 style="margin: 30px;">Its the Sale of the Year</h1>
-        <div class="Products">
-         
-         
+        <!-- Selected Product -->
+        <div class="selectedProduct">
         </div>
-
-
         <!-- Contact. -->
         <div class="info">
             <div class="information">
@@ -120,23 +107,23 @@
             </div>
             <div class="footer-icons">
                 <ul>
-                    <a href=""> <li><ion-icon name="logo-facebook"></ion-icon></li></a>
-                   <a href=""><li><ion-icon name="logo-instagram"></ion-icon></li></a>
-                   <a href=""><li><ion-icon name="logo-twitter"></ion-icon></li></a>
+                    <a href="">
+                        <li><ion-icon name="logo-facebook"></ion-icon></li>
+                    </a>
+                    <a href="">
+                        <li><ion-icon name="logo-instagram"></ion-icon></li>
+                    </a>
+                    <a href="">
+                        <li><ion-icon name="logo-twitter"></ion-icon></li>
+                    </a>
                 </ul>
             </div>
         </footer>
 
 
-
-
-
     </div>
 
-
 </body>
-<script src="public/scripts/index.js"></script>
-<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<script src="../public/scripts/categories.js"></script>
 
 </html>

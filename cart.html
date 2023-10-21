@@ -1,0 +1,69 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #cart-count {
+    font-size: 12px;
+    background: #ff0000;
+    color: #fff;
+    padding: 0 5px;
+    vertical-align: top;
+    margin-left: -10px;
+}
+.badge {
+  padding-left: 9px;
+  padding-right: 9px;
+  -webkit-border-radius: 9px;
+  -moz-border-radius: 9px;
+  border-radius: 9px;
+}
+
+.label-warning[href],
+.badge-warning[href] {
+  background-color: #c67605;
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="cart">
+        <li>Cart</li>
+        <li><a href=""><i class="fa" style="font-size:24px">&#xf07a;</i>
+            <span class='badge badge-warning' id='cart-count'>0 </span></a> 
+        </li>
+        
+    </div>
+    <button id="btn">clikc</button>
+    
+</body>
+<script>
+   function clickcart(){
+    document.getElementById('btn').addEventListener('click',(e)=>{
+        alert('almost there')
+    })
+}
+clickcart();
+
+
+var cartCountElement = document.getElementById('cart-count');
+
+// Get the button element you want to attach the click event to
+var button = document.getElementById('btn'); // Replace 'your-button-id' with the actual button ID or selector
+
+// Add a click event listener to the button
+button.addEventListener('click', function() {
+    // Get the current cart count
+    var currentCount = parseInt(cartCountElement.textContent);
+
+    // Update the cart count
+    var newCount = currentCount + 1;
+
+    // Update the cart count element
+    cartCountElement.textContent = newCount;
+});
+
+</script>
+</html>
