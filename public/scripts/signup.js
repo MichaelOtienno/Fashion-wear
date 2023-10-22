@@ -21,24 +21,24 @@ document.getElementById('signupBtn').addEventListener('click', (e) => {
 
     if (password.value == '' || confirmPassword.value == '' || email.value == '') {
         response.textContent = 'Fill all inputs!'
-        setTimeout(()=>{
+        setTimeout(() => {
             response.textContent = ''
-        },5000)
-       
+        }, 5000)
+
         return;
     } else if (password.value !== confirmPassword.value) {
         response.textContent = 'Passwords don`t match!';
-        setTimeout(()=>{
+        setTimeout(() => {
             response.textContent = ''
-        },5000)
+        }, 5000)
     }
     else if (isValid) {
         window.location.href = '../index.html'
     } else {
         response.textContent = 'Use correct email format!';
-        setTimeout(()=>{
+        setTimeout(() => {
             response.textContent = ''
-        },5000)
+        }, 5000)
 
     }
 })

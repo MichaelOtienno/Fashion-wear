@@ -17,19 +17,19 @@ document.getElementById('signinBtn').addEventListener('click', (e) => {
     const email = Email.value
     const isValid = validateEmail(email);
 
-    if (password.value == '' ||  email.value == '') {
+    if (password.value == '' || email.value == '') {
         response.textContent = 'Fill all inputs!'
-        setTimeout(()=>{
+        setTimeout(() => {
             response.textContent = ''
-        },5000)
+        }, 5000)
         return;
     } else if (isValid) {
         window.location.href = '../index.html'
     } else {
         response.textContent = 'Use correct email format!'
-        setTimeout(()=>{
+        setTimeout(() => {
             response.textContent = ''
-        },5000)
+        }, 5000)
 
     }
 })

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Summary</title>
+    <link rel="stylesheet" type="text/css" href="../public/css/checkout.css">
+</head>
+
+<body>
+    <h1>
+        Order Summary
+        <span class="delete-icon" title="Delete All">&#128465;</span>
+    </h1>
+
+    <div class="container">
+        <div id="cartItemsContainer" class="item-details">
+        </div>
+        <a href="../index.html" class="add-more-button">Add More<span class="add-more-icon"></span></a>
+        <p class="total">Total: $<span id="totalPrice">0</span></p>
+        <button onclick="togglePaymentOptions()" class="checkout-button">Checkout</button>
+
+    </div>
+
+    <div id="paymentOptions" class="payment-options">
+        <h2>Select Payment Option</h2>
+        <div class="payment-option">
+            <input type="radio" name="payment" id="mpesaOption" value="mpesa">
+            <label for="mpesaOption">Pay via M-Pesa</label>
+        </div>
+        <div class="payment-option">
+            <input type="radio" name="payment" id="cashOption" value="cash">
+            <label for="cashOption">Cash on Delivery</label>
+        </div>
+        <button onclick="processPayment()" class="checkout-button">Proceed to Pay</button>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+            const itemDetailsContainer = document.querySelector(".item-details");
+            const totalPriceElement = document.getElementById("totalPrice");
+
+            let totalPrice = 0;
+
+            function updateTotalPrice() {
+                totalPrice = 0;
+                cartItems.forEach((item) => {
+                    totalPrice += item.price * item.quantity;
+                });
+                totalPriceElement.textContent = totalPrice.toFixed(2);
+            }
+
+            function removeItem(index) {
+                cartItems.splice(index, 1);
+                localStorage.setItem("cartItems", JSON.stringify(cartItems));
+                displayCartItems();
+            }
+
+            function displayCartItems() {
+                itemDetailsContainer.innerHTML = '';
+                cartItems.forEach((item, index) => {
+                    const itemDiv = document.createElement("div");
+                    itemDiv.classList.add("item");
+
+                    const itemPrice = item.price * item.quantity;
+
+                    itemDiv.innerHTML = `
+                <h4>${item.title}</h4>
+                <p>Quantity: ${item.quantity}</p>
+                <img class="img" src="${item.image}" alt="${item.title}">
+                <p>Price: $${(itemPrice).toFixed(2)}</p>
+                <button class="quantity-button" data-index="${index}" data-action="decrease">-</button>
+                <button class="quantity-button" data-index="${index}" data-action="increase">+</button>
+            `;
+
+                    itemDetailsContainer.appendChild(itemDiv);
+                });
+                updateTotalPrice();
+            }
+
+            displayCartItems();
+
+            itemDetailsContainer.addEventListener("click", (event) => {
+                if (event.target.classList.contains("quantity-button")) {
+                    const action = event.target.getAttribute("data-action");
+                    const itemIndex = parseInt(event.target.getAttribute("data-index"));
+
+                    if (action === "decrease") {
+                        if (cartItems[itemIndex].quantity > 1) {
+                            cartItems[itemIndex].quantity--;
+                        } else {
+                            removeItem(itemIndex);
+                        }
+                    } else if (action === "increase") {
+                        cartItems[itemIndex].quantity++;
+                    }
+
+
+                    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+                    displayCartItems();
+                }
+            });
+
+            const deleteIcon = document.querySelector(".delete-icon");
+
+            deleteIcon.addEventListener("click", () => {
+                const confirmDelete = confirm("Are you sure you want to delete all items?");
+                if (confirmDelete) {
+                    localStorage.clear();
+                    cartItems.length = 0;
+                    displayCartItems();
+                }
+            });
+
+        });
+        function togglePaymentOptions() {
+            const paymentOptions = document.getElementById('paymentOptions');
+            paymentOptions.style.display = paymentOptions.style.display === 'block' ? 'none' : 'block';
+        }
+        function processPayment() {
+            const mpesaOption = document.getElementById('mpesaOption');
+            const cashOption = document.getElementById('cashOption');
+
+            if (mpesaOption.checked) {
+                const phoneNumber = prompt('Enter your M-Pesa phone number:');
+            } else if (cashOption.checked) {
+                alert('Processing payment via Cash on Delivery...');
+            } else {
+                alert('Please select a payment option.');
+            }
+        }
+
+    </script>
+</body>
+
+</html>
