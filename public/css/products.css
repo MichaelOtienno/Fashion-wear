@@ -219,6 +219,9 @@ button {
     margin-top: 10px;
     cursor:pointer;
     visibility: hidden;
+    background-color: #949292;
+    color: black;
+    font-weight: bold;
   }
   .products-container:hover button{
     visibility: visible;
@@ -242,6 +245,11 @@ button {
 .label-warning[href],
 .badge-warning[href] {
   background-color: #c67605;
+}
+p{
+  font-size: large;
+  font-weight: bold;
+  margin: 10px;
 }
 
 

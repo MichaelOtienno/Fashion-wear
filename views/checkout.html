@@ -9,10 +9,25 @@
 </head>
 
 <body>
-    <h1>
-        Order Summary
-        <span class="delete-icon" title="Delete All">&#128465;</span>
-    </h1>
+    <div class="navigation">
+        <div class="nav">
+            <li><a href="../index.html">Home</a></li>
+            <li>
+                <h1>Order Summary</h1>
+            </li>
+            <li class="delete-icon" title="Delete All">&#128465;</li>
+        </div>
+    </div>
+
+
+    <!-- Custom dialog -->
+    <div id="customDialogContainer" class="custom-dialog-container">
+    <div id="customDialog" class="custom-dialog">
+        <p>Are you sure you want to delete all items?</p>
+        <button id="confirmYes">Yes</button>
+        <button id="confirmNo">No</button>
+    </div>
+    </div>
 
     <div class="container">
         <div id="cartItemsContainer" class="item-details">
@@ -104,14 +119,21 @@
             });
 
             const deleteIcon = document.querySelector(".delete-icon");
+            const customDialog = document.getElementById("customDialog");
+            const confirmYes = document.getElementById("confirmYes");
+            const confirmNo = document.getElementById("confirmNo");
 
             deleteIcon.addEventListener("click", () => {
-                const confirmDelete = confirm("Are you sure you want to delete all items?");
-                if (confirmDelete) {
+                customDialog.style.display = "block";
+                confirmYes.addEventListener("click", () => {
                     localStorage.clear();
                     cartItems.length = 0;
                     displayCartItems();
-                }
+                    customDialog.style.display = "none"; 
+                });
+                confirmNo.addEventListener("click", () => {
+                    customDialog.style.display = "none";
+                });
             });
 
         });

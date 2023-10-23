@@ -368,3 +368,20 @@ footer {
 .badge-warning[href] {
     background-color: #c67605;
 }
+
+.advertisement{
+    display: flex;
+    justify-content: center;
+   
+    height: 70px;
+    background-color: white;
+
+}
+.advert{
+    display: flex;
+    align-items: center;
+   font-size: x-large;
+    color: black;
+    width: 40%;
+
+}

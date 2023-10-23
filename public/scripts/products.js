@@ -70,20 +70,13 @@ if (localStorage.getItem('product')) {
 
             }
 
-
-
         })
         .catch(error => {
             console.error('Error fetching single item:', error);
         });
 } else {
     console.log('No product selected in localStorage.');
-
-
-
 }
-
-
 
 function truncator(description) {
     const words = description.split(' ');
