@@ -3,6 +3,7 @@
     margin: 0;
 }
 
+
 h1 {
     text-align: center;
     margin: 10px;
@@ -342,9 +343,6 @@ footer {
     color: black;
 }
 
-
-
-
 #cart-count {
     font-size: 12px;
     background: #ff0000;
@@ -382,4 +380,31 @@ footer {
     color: black;
     width: 40%;
 
+}
+
+
+/* media queries */
+@media screen and (max-width:720px) {
+ 
+
+    .home{
+        flex-wrap: wrap;
+        font-size: 20px;
+    }
+    .search-container{
+        display: none;
+    }
+    h1{
+        display: none;
+    }
+    .nav{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    
+    }
+    .music{
+        visibility: hidden;
+    }
+  
 }

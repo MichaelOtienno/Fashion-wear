@@ -251,6 +251,31 @@ p{
   font-weight: bold;
   margin: 10px;
 }
+.homi:hover{
+  background-color: rgb(182, 180, 180);
+  padding: 8px;
+
+}
+
+
+/* media queries */
+@media screen and (max-width:720px) {
+  .nav{
+    flex-wrap: wrap;
+  }
+  .account{
+    flex-wrap: wrap;
+  }
+  .home{
+    flex-wrap: wrap;
+  }
+  h1{
+  display: none;
+  }
+ 
+
+  
+}
 
 
 
