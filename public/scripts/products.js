@@ -1,5 +1,3 @@
-//Products by Id
-
 if (localStorage.getItem('product')) {
     const selectedProduct = JSON.parse(localStorage.getItem('product'));
     const productId = selectedProduct.id;
@@ -25,7 +23,6 @@ if (localStorage.getItem('product')) {
             buyButton.classList.add('buy-button');
             buyButton.addEventListener('click', clickcart);
 
-
             const details = document.createElement('div');
             details.classList.add('detail-container');
             details.innerHTML = `
@@ -40,15 +37,14 @@ if (localStorage.getItem('product')) {
             productDiv.appendChild(details);
             selectedProductDiv.appendChild(productDiv);
 
-
-            let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
             const cartCountElement = document.getElementById('cart-count');
             const totalQuantity = cartItems.reduce((total, item) => total + item.quantity, 0);
             cartCountElement.textContent = totalQuantity;
+
             function clickcart(e) {
                 e.preventDefault();
                 e.stopPropagation();
-
 
                 const selectedProduct = JSON.parse(localStorage.getItem('product'));
                 let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
@@ -61,30 +57,22 @@ if (localStorage.getItem('product')) {
                         id: selectedProduct.id,
                         quantity: 1,
                         image: selectedProduct.image,
+                        description:selectedProduct.description,
+                        title:selectedProduct.title,
+                        price:selectedProduct.price
                     });
                 }
 
                 const totalQuantity = cartItems.reduce((total, item) => total + item.quantity, 0);
                 cartCountElement.textContent = totalQuantity;
                 localStorage.setItem('cartItems', JSON.stringify(cartItems));
-
             }
-
         })
         .catch(error => {
             console.error('Error fetching single item:', error);
         });
 } else {
     console.log('No product selected in localStorage.');
-}
-
-function truncator(description) {
-    const words = description.split(' ');
-    if (words.length > 2) {
-        const truncatedDescription = words.slice(0, 7).join(' ') + '...';
-        return truncatedDescription;
-    }
-    return description;
 }
 
 // All products
