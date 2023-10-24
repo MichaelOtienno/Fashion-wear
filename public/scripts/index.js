@@ -6,7 +6,6 @@ function truncator(description) {
     }
     return description;
 }
-
 const cart = [];
 function fetchAndDisplayProducts() {
     fetch('https://fakestoreapi.com/products')
@@ -35,11 +34,11 @@ function fetchAndDisplayProducts() {
                     e.preventDefault();
                     ProductClick(product);
                 });
+
                 const cartData = JSON.parse(localStorage.getItem('cartItems')) || [];
                 const cartCount = document.getElementById('cart-count');
                 const totalQuantity = cartData.reduce((total, item) => total + item.quantity, 0);
                 cartCount.textContent = totalQuantity;
-
 
                 const addToCartButton = productsDiv.querySelector('.updatecart');
                 addToCartButton.addEventListener('click', () => {

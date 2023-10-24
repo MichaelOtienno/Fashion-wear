@@ -18,18 +18,20 @@
             <li class="delete-icon" title="Delete All">&#128465;</li>
         </div>
     </div>
+   
 
 
     <!-- Custom dialog -->
     <div id="customDialogContainer" class="custom-dialog-container">
-    <div id="customDialog" class="custom-dialog">
-        <p>Are you sure you want to delete all items?</p>
-        <button id="confirmYes">Yes</button>
-        <button id="confirmNo">No</button>
-    </div>
+        <div id="customDialog" class="custom-dialog">
+            <p>Are you sure you want to delete all items?</p>
+            <button id="confirmYes">Yes</button>
+            <button id="confirmNo">No</button>
+        </div>
     </div>
 
     <div class="container">
+        <p id="empty" style="color: red; font-size: 20px;"></p>
         <div id="cartItemsContainer" class="item-details">
         </div>
         <a href="../index.html" class="add-more-button">Add More<span class="add-more-icon"></span></a>
@@ -124,17 +126,29 @@
             const confirmNo = document.getElementById("confirmNo");
 
             deleteIcon.addEventListener("click", () => {
-                customDialog.style.display = "block";
-                confirmYes.addEventListener("click", () => {
-                    localStorage.clear();
-                    cartItems.length = 0;
-                    displayCartItems();
-                    customDialog.style.display = "none"; 
+                const cartData = JSON.parse(localStorage.getItem('cartItems')) || [];
+                const empty = document.getElementById('empty');
+            
+                if (cartData.length === 0) {
+                    empty.textContent  = "No items to delete"  
+                    setTimeout(() => {
+                        empty.textContent  = ""  
+                        
+                    },2500);
+                    
+                }else{
+                    customDialog.style.display = "block";
+                    confirmYes.addEventListener("click", () => {
+                        localStorage.clear();
+                        cartItems.length = 0;
+                        displayCartItems();
+                        customDialog.style.display = "none";
+                    });
+                    confirmNo.addEventListener("click", () => {
+                        customDialog.style.display = "none";
+                    });
+                }
                 });
-                confirmNo.addEventListener("click", () => {
-                    customDialog.style.display = "none";
-                });
-            });
 
         });
         function togglePaymentOptions() {

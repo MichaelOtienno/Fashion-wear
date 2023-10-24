@@ -3,19 +3,16 @@
     margin: 0;
 }
 
-
-h1 {
-    text-align: center;
-    margin: 10px;
-}
-
-.music {
-    font-size: 35px;
-
-}
-
-
 /* naviagation */
+.advert {
+    display: flex;
+    align-items: center;
+    font-size: x-large;
+    color: black;
+    width: 40%;
+
+}
+
 .nav {
     position: sticky;
     top: 0;
@@ -28,6 +25,11 @@ h1 {
     background-color: #ffffff;
 }
 
+.music {
+    font-size: 35px;
+
+}
+
 .home ul li a {
     text-decoration: none;
     color: black;
@@ -38,12 +40,6 @@ h1 {
     border: thistle gray 0.1px;
 }
 
-ion-icon {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    right: 10px;
-}
 
 input {
     padding: 0.5em 1em;
@@ -155,6 +151,9 @@ select#category:hover {
 
 
 /* Products. */
+h1{
+    text-align: center;
+}
 .Products {
     display: flex;
     flex-wrap: wrap;
@@ -227,44 +226,7 @@ button {
     background-color: red;
 }
 
-/* Recent Products */
-.Rwords {
-    text-align: center;
-    margin: 40px;
-}
 
-.Rwords h4 {
-    color: gray;
-}
-
-.recentProducts {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-
-}
-
-.recentProducts ul {
-    list-style-type: none;
-}
-
-.recentProducts ul li {
-    margin: 20px;
-}
-
-.recentProducts ul li img {
-    width: 200px;
-    padding: 10px;
-
-}
-
-.recentSpeakers {
-    text-align: center;
-}
-
-.recentProducts {
-    background-color: rgb(247, 246, 246);
-}
 
 /* Message. */
 .Messages {
@@ -365,46 +327,43 @@ footer {
     background-color: #c67605;
 }
 
-.advertisement{
+.advertisement {
     display: flex;
     justify-content: center;
-   
+
     height: 70px;
     background-color: white;
 
 }
-.advert{
-    display: flex;
-    align-items: center;
-   font-size: x-large;
-    color: black;
-    width: 40%;
 
-}
 
 
 /* media queries */
 @media screen and (max-width:720px) {
- 
 
-    .home{
+
+    .home {
         flex-wrap: wrap;
         font-size: 20px;
     }
-    .search-container{
+
+    .search-container {
         display: none;
     }
-    h1{
+
+    h1 {
         display: none;
     }
-    .nav{
+
+    .nav {
         display: flex;
         flex-direction: column;
         align-items: center;
-    
+
     }
-    .music{
+
+    .music {
         visibility: hidden;
     }
-  
+
 }
