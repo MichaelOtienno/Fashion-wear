@@ -142,7 +142,6 @@ select#category {
 
 select#category:hover {
     background-color: #afaeae;
-    /* Change background color on hover */
     border-radius: 5px;
     cursor: pointer;
 
@@ -158,7 +157,6 @@ select#category:hover {
 .Products {
     display: flex;
     flex-wrap: wrap;
-    /* justify-content: space-evenly; */
     background-color: rgb(240, 237, 237);
     justify-content: center;
 }

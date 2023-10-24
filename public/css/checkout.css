@@ -44,34 +44,26 @@ body {
   width: 100%;
   padding-top: 60px;
   padding-bottom: 20px;
-}
-
-.card {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  grid-gap: 10px;
-  align-items: center;
-  padding: 10px;
   background-color: white;
-  margin-bottom: 10px;
-  border-radius: 5px;
-  width: 300px;
 }
 
-.card img {
-  width: 80px;
-  height: 80px;
-  object-fit: cover;
-}
-
-.card .details {
+.item-details{
+  max-width: 50%;
+  flex-wrap: wrap;
   display: flex;
-  flex-direction: column;
-  flex-grow: 1;
+  padding: 10px;
+  gap: 10px;
 }
-
-
-
+.item{
+  width: 193px;
+  padding: 10px;
+  border-radius: 5px;
+}
+.quantity-button{
+  margin: 20px;
+  font-size: 20px;
+  padding: 0px 10px;
+}
 .total {
   font-weight: bold;
   font-size: 18px;
@@ -91,19 +83,7 @@ body {
   align-items: center;
 }
 
-.add-more-button::after {
-  content: "+";
-  margin-left: 5px;
-  background-color: #000000;
-  color: #ffffff;
-  padding: 5px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 14px;
-  font-weight: bold;
-}
+
 
 .checkout-button {
   background-color: #000000;
@@ -193,4 +173,11 @@ body {
 
 .custom-dialog button {
   margin: 5px;
+}
+
+@media screen and (max-width:720px) {
+  .nav{
+    flex-wrap: wrap;
+  }
+  
 }
