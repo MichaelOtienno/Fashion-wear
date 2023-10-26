@@ -13,14 +13,14 @@
         <div class="nav">
             <li><a href="../index.html">Home</a></li>
             <li>
-                <h1>Order Summary</h1>
+                <h1>My Shopping Cart</h1>
             </li>
             <li class="delete-icon" title="Delete All">&#128465;</li>
         </div>
     </div>
    
 
-    <div id="customDialogContainer" class="custom-dialog-container">
+    <div id="modal" class="modal-container">
         <div id="customDialog" class="custom-dialog">
             <p>Are you sure you want to delete all items?</p>
             <button id="confirmYes">Yes</button>
@@ -119,7 +119,8 @@
             });
 
             const deleteIcon = document.querySelector(".delete-icon");
-            const customDialog = document.getElementById("customDialog");
+            const modal = document.getElementById('modal');
+            // const customDialog = document.getElementById("customDialog");
             const confirmYes = document.getElementById("confirmYes");
             const confirmNo = document.getElementById("confirmNo");
 
@@ -135,15 +136,15 @@
                     },2500);
                     
                 }else{
-                    customDialog.style.display = "block";
+                    modal.style.display='block'
                     confirmYes.addEventListener("click", () => {
                         localStorage.clear();
                         cartItems.length = 0;
                         displayCartItems();
-                        customDialog.style.display = "none";
+                        modal.style.display = "none";
                     });
                     confirmNo.addEventListener("click", () => {
-                        customDialog.style.display = "none";
+                        modal.style.display = "none";
                     });
                 }
                 });
@@ -164,6 +165,13 @@
             } else {
                 alert('Please select a payment option.');
             }
+            
+
+            window.onclick = function(event) {
+  if (event.target == paymentOptions) {
+    paymentOptions.style.display = "none";
+  }
+}
         }
 
     </script>
